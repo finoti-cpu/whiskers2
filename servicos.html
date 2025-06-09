@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Whiskers - Serviços</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #f3d78e;
+      --main-color-dark: #eacb7a;
+      --text-on-main: #5c4b21;
+      --lavender: #9D89C3;
+    }
+
+    body {
+      padding-top: 90px;
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      transition: all 0.3s ease;
+      padding: 20px 0;
+    }
+
+    .navbar.scrolled {
+      background-color: #ffffff;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand img {
+      height: 80px;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand img:hover {
+      transform: rotate(-10deg) scale(1.1);
+    }
+
+    .petz-menu .nav-item {
+      position: relative;
+      padding-top: 32px;
+      margin: 0 8px;
+    }
+
+    .petz-menu .nav-link {
+      color: #000;
+      font-weight: 500;
+    }
+
+    .petz-menu .nav-item:hover .nav-link {
+      color: #CE6941;
+    }
+
+    .petz-menu .nav-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      width: 32px;
+      height: 32px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transition: transform 0.3s;
+    }
+
+   .petz-menu .nav-item:nth-child(1)::before { background-image: url('img/cachorro.png'); }
+.petz-menu .nav-item:nth-child(2)::before { background-image: url('img/gato.png'); }
+.petz-menu .nav-item:nth-child(3)::before { background-image: url('img/bixoverde.png'); }
+.petz-menu .nav-item:nth-child(4)::before { background-image: url('img/cacto.png'); }
+.petz-menu .nav-item:nth-child(5)::before { background-image: url('img/promo.png'); }
+.petz-menu .nav-item:nth-child(6)::before { background-image: url('img/sacola.png'); }
+.petz-menu .nav-item:nth-child(7)::before { background-image: url('img/adote.png'); }
+
+
+    .petz-menu .nav-item:hover::before {
+      transform: translateX(-50%) scale(2);
+    }
+
+    .service-section {
+      padding: 60px 0;
+    }
+
+    .service-card {
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      color: var(--lavender);
+    }
+
+    .service-title {
+      font-weight: 600;
+    }
+
+    footer {
+      background: #f9f7fb;
+      padding: 20px 0;
+      margin-top: 50px;
+      box-shadow: inset 0 1px 0 #e0dfea;
+      text-align: center;
+      color: #e25d25;
+      font-weight: 600;
+    }
+
+    .btn-whatsapp {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 1px 1px 2px #ffffff;
+      z-index: 1000;
+    }
+
+    .fa-whatsapp {
+      margin-top: 16px;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-7px);
+      transition: all 0.5s ease;
+    }
+
+    .service-icon i {
+  color: #e25d25 !important;
+}
+  </style>
+</head>
+<body>
+
+<!-- Navbar atualizada -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="img/logo.png" alt="Whiskers Logo" height="80">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPetz">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarPetz">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 petz-menu">
+        <li class="nav-item"><a class="nav-link" href="cuidados.html">Cuidados</a></li>
+        <li class="nav-item"><a class="nav-link" href="nosso.html">Nosso Espaço</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre Nós</a></li>
+        <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+        <li class="nav-item"><a class="nav-link" href="adote.html">Adote</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+      </ul>
+
+      <form class="d-flex me-4" onsubmit="event.preventDefault();">
+        <input class="form-control me-2 rounded-pill" type="search" placeholder="O que seu pet precisa?" />
+        <button class="btn btn-outline-primary rounded-pill px-4" type="submit">Buscar</button>
+      </form>
+
+      <div class="d-flex align-items-center gap-3">
+        <a href="#" class="text-dark"><i class="fas fa-phone fa-lg"></i></a>
+        <a href="#" class="text-dark"><i class="far fa-heart fa-lg"></i></a>
+        <a href="#" class="text-dark"><i class="fas fa-shopping-bag fa-lg"></i></a>
+        <li class="nav-item"><a class="nav-link" href="entrar.html">Entrar</a></li>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Seção de Serviços -->
+<section class="service-section text-center">
+  <div class="container">
+    <h2 class="mb-5" style="color: #e25d25;">Nossos Serviços</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card service-card p-4">
+          <div class="service-icon mb-3"><i class="fas fa-shower"></i></div>
+          <h5 class="service-title">Banho & Tosa</h5>
+          <p>Serviço completo com produtos de qualidade e carinho para seu pet ficar limpo e cheiroso.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card service-card p-4">
+          <div class="service-icon mb-3"><i class="fas fa-syringe"></i></div>
+          <h5 class="service-title">Vacinação</h5>
+          <p>Proteja a saúde do seu pet com nosso serviço de vacinação feito por profissionais.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card service-card p-4">
+          <div class="service-icon mb-3"><i class="fas fa-stethoscope"></i></div>
+          <h5 class="service-title">Consulta Veterinária</h5>
+          <p>Atendimento com veterinários experientes para garantir o bem-estar do seu melhor amigo.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card service-card p-4">
+          <div class="service-icon mb-3"><i class="fas fa-paw"></i></div>
+          <h5 class="service-title">Adestramento</h5>
+          <p>Treinamentos personalizados para ajudar seu pet a ter bom comportamento em casa e fora.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card service-card p-4">
+          <div class="service-icon mb-3"><i class="fas fa-hotel"></i></div>
+          <h5 class="service-title">Hotel para Pets</h5>
+          <p>Hospedagem segura e divertida para seu pet quando você precisar viajar ou se ausentar.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card service-card p-4">
+          <div class="service-icon mb-3"><i class="fas fa-bone"></i></div>
+          <h5 class="service-title">Alimentação Natural</h5>
+          <p>Opções de alimentação saudável e personalizada para uma vida mais longa e feliz.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Botão WhatsApp -->
+<a href="https://wa.me/SEUNUMERO" class="btn-whatsapp shadow" target="_blank" title="Fale conosco no WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Footer atualizado -->
+<footer>
+  <div>
+    <h5>Whiskers Pet Shop</h5>
+    <p>Seu pet em boas patinhas. Produtos de qualidade, carinho e confiança</p>
+    <div>
+      <a href="https://facebook.com" target="_blank" class="me-3 text-decoration-none text-secondary"><i class="fab fa-facebook fa-lg"></i></a>
+      <a href="https://instagram.com" target="_blank" class="me-3 text-decoration-none text-secondary"><i class="fab fa-instagram fa-lg"></i></a>
+      <a href="https://twitter.com" target="_blank" class="text-decoration-none text-secondary"><i class="fab fa-twitter fa-lg"></i></a>
+    </div>
+    <small>© 2025 Whiskers. Todos os direitos reservados.</small>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+  
+</script>
+</body>
+</html>

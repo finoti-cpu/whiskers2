@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adoção de Pets | Whiskers Pet Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --main-color: #f3d78e;
+      --main-color-dark: #eacb7a;
+      --text-on-main: #5c4b21;
+    }
+
+    body {
+      background-color: #fff;
+      padding-top: 80px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      transition: all 0.3s ease;
+      padding: 20px 0;
+    }
+
+    .navbar .nav-link,
+    .navbar .btn,
+    .navbar i {
+      color: #000 !important;
+    }
+
+    .navbar.scrolled {
+      background-color: #ffffff;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar.scrolled .nav-link,
+    .navbar.scrolled .btn,
+    .navbar.scrolled i {
+      color: #3e281b !important;
+    }
+
+    .navbar-brand img {
+      height: 70px;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand img:hover {
+      transform: rotate(-10deg) scale(1.1);
+    }
+
+    .petz-menu .nav-item {
+      position: relative;
+      padding-top: 32px;
+      margin: 0 8px;
+      transition: color 0.3s;
+    }
+
+    .petz-menu .nav-link {
+      color: #000;
+      font-weight: 500;
+    }
+
+    .petz-menu .nav-item:hover .nav-link {
+      color: #CE6941;
+    }
+
+    .petz-menu .nav-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      width: 32px;
+      height: 32px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transition: transform 0.3s;
+    }
+
+    .petz-menu .nav-item:hover::before {
+      transform: translateX(-50%) scale(2);
+    }
+
+    /* Ícones dos bichinhos personalizados */
+    .petz-menu .nav-item:nth-child(1)::before { background-image: url('img/cachorro.png'); }
+    .petz-menu .nav-item:nth-child(2)::before { background-image: url('img/gato.png'); }
+    .petz-menu .nav-item:nth-child(3)::before { background-image: url('img/bixoverde.png'); }
+    .petz-menu .nav-item:nth-child(4)::before { background-image: url('img/cacto.png'); }
+    .petz-menu .nav-item:nth-child(5)::before { background-image: url('img/promo.png'); }
+    .petz-menu .nav-item:nth-child(6)::before { background-image: url('img/sacola.png'); }
+    .petz-menu .nav-item:nth-child(7)::before { background-image: url('img/adote.png'); }
+
+    .section-title {
+      color: #e25d25;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .pet-card {
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .pet-card:hover {
+      transform: scale(1.03);
+    }
+
+    .pet-card img {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    .btn {
+      color: #e25d25;
+    }
+
+    .btn-outline-primary {
+  border-color: #e67e22;
+  color: #e67e22;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #e67e22;
+  color: #fff;
+  border-color: #e67e22;
+}
+
+
+    footer {
+      background: #f9f7fb;
+      padding: 20px 0;
+      margin-top: 50px;
+      box-shadow: inset 0 1px 0 #e0dfea;
+      text-align: center;
+      color: #e25d25;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar COMPLETA estilo index -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="img/logo.png" alt="Whiskers Logo" height="80" />
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPetz">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarPetz">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 petz-menu">
+        <li class="nav-item"><a class="nav-link" href="cuidados.html">Cuidados</a></li>
+        <li class="nav-item"><a class="nav-link" href="nosso.html">Nosso Espaço</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre Nós</a></li>
+        <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+        <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+        <li class="nav-item"><a class="nav-link active" href="adocao.html">Adoção</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+      </ul>
+
+      <!-- Barra de busca -->
+      <form class="d-flex me-4" onsubmit="event.preventDefault();">
+        <input class="form-control me-2 rounded-pill" type="search" placeholder="O que seu pet precisa?" />
+        <button class="btn btn-outline-primary rounded-pill px-4" type="submit">Buscar</button>
+      </form>
+
+      <!-- Ícones -->
+      <div class="d-flex align-items-center gap-3">
+        <a href="#" class="text-dark"><i class="fas fa-phone fa-lg"></i></a>
+        <a href="#" class="text-dark"><i class="far fa-heart fa-lg"></i></a>
+        <a href="#" class="text-dark"><i class="fas fa-shopping-bag fa-lg"></i></a>
+        <li class="nav-item"><a class="nav-link" href="entrar.html">Entrar</a></li>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- Conteúdo principal -->
+<div class="container mt-5">
+  <h1 class="section-title">Adote um Amigo 🧡</h1>
+  <div class="row g-4">
+    <!-- Pet 1 -->
+    <div class="col-md-4">
+      <div class="card pet-card">
+        <img src="img/pet1.jpg" class="card-img-top" alt="Pet 1">
+        <div class="card-body">
+          <h5 class="card-title">Luna</h5>
+          <p class="card-text">Femêa, 2 anos, castrada e super carinhosa. Ideal para apartamento.</p>
+          <a href="formulario-adocao.html" class="btn btn-outline-primary">Quero Adotar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Pet 2 -->
+    <div class="col-md-4">
+      <div class="card pet-card">
+        <img src="img/pet2.jpg" class="card-img-top" alt="Pet 2">
+        <div class="card-body">
+          <h5 class="card-title">Thor</h5>
+          <p class="card-text">Macho, 3 anos, porte médio, muito brincalhão e sociável com outros pets.</p>
+          <a href="formulario-adocao.html" class="btn btn-outline-primary">Quero Adotar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Pet 3 -->
+    <div class="col-md-4">
+      <div class="card pet-card">
+        <img src="img/pet3.jpg" class="card-img-top" alt="Pet 3">
+        <div class="card-body">
+          <h5 class="card-title">Luke</h5>
+          <p class="card-text">Macho, 6 meses, porte médio, muito brincalhão, carinhoso e sociável com outros pets.</p>
+          <a href="formulario-adocao.html" class="btn btn-outline-primary">Quero Adotar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Pet 4 -->
+    <div class="col-md-4">
+      <div class="card pet-card">
+        <img src="img/pet4.jpg" class="card-img-top" alt="Pet 4">
+        <div class="card-body">
+          <h5 class="card-title">Liz</h5>
+          <p class="card-text">Femêa, 3 anos, porte grande, brincalhona, protetora, ideal para casas grandes.</p>
+          <a href="formulario-adocao.html" class="btn btn-outline-primary">Quero Adotar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Pet 5 -->
+    <div class="col-md-4">
+      <div class="card pet-card">
+        <img src="img/pet5.jpg" class="card-img-top" alt="Pet 5">
+        <div class="card-body">
+          <h5 class="card-title">Zoe</h5>
+          <p class="card-text">Femêa, 2 anos, porte médio, brincalhona, ideal como cão de guarda.</p>
+          <a href="formulario-adocao.html" class="btn btn-outline-primary">Quero Adotar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Pet 6 -->
+    <div class="col-md-4">
+      <div class="card pet-card">
+        <img src="img/pet6.jpg" class="card-img-top" alt="Pet 6">
+        <div class="card-body">
+          <h5 class="card-title">Malu</h5>
+          <p class="card-text">Femêa, 7 meses, porte pequeno, amorosa, brincalhona e alegre. Ideal para crianças.</p>
+          <a href="formulario-adocao.html" class="btn btn-outline-primary">Quero Adotar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Pet 7 -->
+    <div class="col-md-4">
+      <div class="card pet-card">
+        <img src="img/pet7.jpg" class="card-img-top" alt="Pet 7">
+        <div class="card-body">
+          <h5 class="card-title">Olívia</h5>
+          <p class="card-text">Femêa, 1 ano, porte pequeno, amorosa, sociável e brincalhona com outros pets.</p>
+          <a href="formulario-adocao.html" class="btn btn-outline-primary">Quero Adotar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Pet 8 -->
+    <div class="col-md-4">
+      <div class="card pet-card">
+        <img src="img/pet8.jpg" class="card-img-top" alt="Pet 8">
+        <div class="card-body">
+          <h5 class="card-title">Lino</h5>
+          <p class="card-text">Macho, 5 anos, porte médio, muito brincalhão e sociável com outros pets.</p>
+          <a href="formulario-adocao.html" class="btn btn-outline-primary">Quero Adotar</a>
+        </div>
+      </div>
+    </div>
+    <!-- Pet 9 -->
+    <div class="col-md-4">
+      <div class="card pet-card">
+        <img src="img/pet9.jpg" class="card-img-top" alt="Pet 9">
+        <div class="card-body">
+          <h5 class="card-title">Mel</h5>
+          <p class="card-text">Fêmea, filhote de 6 meses. Cheia de energia e pronta para um novo lar!</p>
+          <a href="formulario-adocao.html" class="btn btn-outline-primary">Quero Adotar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer>
+  <div>
+    <h5>Whiskers Pet Shop</h5>
+    <p>Seu pet em boas patinhas. Produtos de qualidade, carinho e confiança</p>
+    <div>
+      <a href="https://facebook.com" target="_blank" class="me-3 text-decoration-none text-secondary">
+        <i class="fab fa-facebook fa-lg"></i>
+      </a>
+      <a href="https://instagram.com" target="_blank" class="me-3 text-decoration-none text-secondary">
+        <i class="fab fa-instagram fa-lg"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank" class="text-decoration-none text-secondary">
+        <i class="fab fa-twitter fa-lg"></i>
+      </a>
+    </div>
+    <small>© 2025 Whiskers. Todos os direitos reservados.</small>
+  </div>
+</footer>
+
+<!-- Scripts Bootstrap + Navbar Scroll -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+</body>
+</html>
