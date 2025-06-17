@@ -425,6 +425,71 @@ footer {
   object-fit: contain;
 }
 
+.button {
+  position: fixed;
+  left: 20px; /* Define a posição na esquerda */
+  bottom: 40px; /* Mantém a posição na parte inferior */
+}
+
+
+.button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px rgba(180, 160, 255, 0.253);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.button:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: #ee9346;
+  align-items: center;
+}
+
+.button:hover .svgIcon {
+  /* width: 20px; */
+  transition-duration: 0.3s;
+  transform: translateY(-200%);
+}
+
+.button::before {
+  position: absolute;
+  bottom: -20px;
+  content: "Voltar para o topo";
+  color: white;
+  /* transition-duration: .3s; */
+  font-size: 0px;
+}
+
+.button:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  bottom: unset;
+  /* transform: translateY(-30px); */
+  transition-duration: 0.3s;
+}
+
+
 
 
 @keyframes scroll {
@@ -457,7 +522,7 @@ footer {
 
      <!-- Menu de categorias -->
 <ul class="navbar-nav mx-auto mb-2 mb-lg-0 petz-menu">
-  <li class="nav-item"><a class="nav-link" href="cuidados.html">Cuidados</a></li>
+  <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
   <li class="nav-item"><a class="nav-link" href="nosso.html">Nosso Espaço</a></li>
   <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
   <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre Nós</a></li>
@@ -509,10 +574,10 @@ footer {
       <img src="img/Cartão de visita pet shop criativo moderno marrom e laranja.png" class="d-block w-100" alt="Imagem 1" />
     </div>
     <div class="carousel-item">
-      <video src="img/Red Playful Pet Animal Channel Tips Youtube Intro.mp4" type="video/mp4" autoplay muted loop class="d-block w-100" alt="Vídeo">
+      <video src="img/Pets, divertido, azul e amarelo, vídeo.mp4" type="video/mp4" autoplay muted loop class="d-block w-100" alt="Vídeo">
     </div>
     <div class="carousel-item">
-      <img src="img/banner 2.png" class="d-block w-100" alt="Imagem 3" />
+      <img src="img/Banner pet shop orgânico fotográfico vermelho amarelo e pastel.png" class="d-block w-100" alt="Imagem 3" />
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -559,7 +624,7 @@ footer {
       <div class="p-3 rounded-4 shadow-sm service-item" style="background-color: #E3F2FD;">
         <div class="service-icon">
           <i class="fas fa-bath fa-2x" style="color: #1976D2;"></i>
-          <div class="service-pet" style="background-image: url('img/bicho no banho.png')"></div>
+          <div class="service-pet" style="background-image: url('img/bichonobanho.png')"></div>
         </div>
         <p class="fw-bold mb-0" style="color: #1976D2;">Banho e Tosa</p>
       </div>
@@ -592,7 +657,7 @@ footer {
       <div class="p-3 rounded-4 shadow-sm service-item" style="background-color: #b1d0bf;">
         <div class="service-icon">
           <i class="fas fa-book-open fa-2x" style="color: #568D6E;"></i>
-          <div class="service-pet" style="background-image: url('img/sapa-tona.png')"></div>
+          <div class="service-pet" style="background-image: url('img/sapatona.png')"></div>
         </div>
         <p class="fw-bold mb-0" style="color: #568D6E;">Blog</p>
       </div>
@@ -783,6 +848,14 @@ footer {
     <i class="fab fa-whatsapp"></i>
   </a>
 
+  <button class="button">
+  <svg class="svgIcon" viewBox="0 0 384 512">
+    <path
+      d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+    ></path>
+  </svg>
+</button>
+
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -792,6 +865,11 @@ footer {
       nav.classList.toggle('scrolled', window.scrollY > 50);
     });
   </script>
+  <script>
+  document.querySelector(".button").addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
